@@ -14,7 +14,16 @@ var userInput= txtInput.value;
 
 fetch(getServerUrl(userInput))
 .then(response => response.json())
-.then(json => console.log(json))
+.then(json => {
+  var translatedText= json.contents.translated;
+  output.innerText= translatedText;
+})
+.catch(handelError)
+}
+
+
+function handelError(error){
+  alert("something went wrong with the server");
 }
 
 translateBtn.addEventListener("click",handleBtnClick)
