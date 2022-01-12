@@ -1,15 +1,14 @@
-var translateBtn= document.querySelector("#btn-translate")
-var txtInput = document.querySelector("#txt-input")
-var output= document.querySelector(".output")
+const translateBtn= document.querySelector("#btn-translate")
+const txtInput = document.querySelector("#txt-input")
+const output= document.querySelector(".output")
 
-var serverUrl= "https://api.funtranslations.com/translate/minion.json"
+const serverUrl= "https://api.funtranslations.com/translate/minion.json"
 
-function getServerUrl(text){
-  return serverUrl +"?"+"text="+text
-}
+const getServerUrl=(text)=> serverUrl +"?"+"text="+text
 
+// const handelError=(error)=>alert("something went wrong with the server");
 
-function handleBtnClick(userInput){
+const handleBtnClick=(userInput)=>{
 var userInput= txtInput.value;
 
 fetch(getServerUrl(userInput))
@@ -21,9 +20,8 @@ fetch(getServerUrl(userInput))
 .catch(handelError)
 }
 
-
 function handelError(error){
-  alert("something went wrong with the server");
+  alert("something went wrogn")
 }
 
 translateBtn.addEventListener("click",handleBtnClick)
